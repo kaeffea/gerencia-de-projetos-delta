@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1190" width="1800" height="1190" font-family="Liberation Sans, Arial, sans-serif">
+<rect width="1800" height="1190" fill="#ffffff"/>
+<rect x="20" y="60" width="1760" height="155" rx="10" fill="#f6f8f7" stroke="#d5dcd8" stroke-dasharray="6 5"/>
+<text transform="translate(42,137.5) rotate(-90)" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b7a72">APLICAÇÕES</text>
+<rect x="20" y="240" width="1760" height="230" rx="10" fill="#f6f8f7" stroke="#d5dcd8" stroke-dasharray="6 5"/>
+<text transform="translate(42,355.0) rotate(-90)" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b7a72">CORE · GENERIC</text>
+<rect x="20" y="570" width="1760" height="220" rx="10" fill="#f6f8f7" stroke="#d5dcd8" stroke-dasharray="6 5"/>
+<text transform="translate(42,680.0) rotate(-90)" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b7a72">SUPPORT</text>
+<rect x="20" y="880" width="1760" height="190" rx="10" fill="#f6f8f7" stroke="#d5dcd8" stroke-dasharray="6 5"/>
+<text transform="translate(42,975.0) rotate(-90)" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.4" fill="#6b7a72">INFRA</text>
+<text x="20" y="34" font-size="22" font-weight="700" fill="#16211c">Diagrama de Componentes · Manejo Inteligente de Bois</text>
+<path d="M520,190 V240 H280 V263" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="520" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M605,190 V585 H650 V593" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="605" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M690,190 V555 H1150 V593" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="690" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M1100,190 V250 H900 V263" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1100" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M1320,190 V250 H1575 V263" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1320" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M1180,190 V510 H650 V593" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1180" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M1250,190 V570 H1290 V593" fill="none" stroke="#5b6b82" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1250" cy="190" r="3.5" fill="#5b6b82"/>
+<path d="M405,450 V585 H650 V593" fill="none" stroke="#c0392b" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="405" cy="450" r="3.5" fill="#c0392b"/>
+<path d="M425,450 V555 H1150 V593" fill="none" stroke="#c0392b" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="425" cy="450" r="3.5" fill="#c0392b"/>
+<path d="M160,450 V870 H205 V883" fill="none" stroke="#c0392b" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="160" cy="450" r="3.5" fill="#c0392b"/>
+<path d="M240,450 V860 H535 V883" fill="none" stroke="#c0392b" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="240" cy="450" r="3.5" fill="#c0392b"/>
+<path d="M330,450 V830 H1570 V883" fill="none" stroke="#c0392b" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="330" cy="450" r="3.5" fill="#c0392b"/>
+<path d="M800,450 V510 H650 V593" fill="none" stroke="#1f5f45" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="800" cy="450" r="3.5" fill="#1f5f45"/>
+<path d="M990,450 V830 H1570 V883" fill="none" stroke="#1f5f45" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="990" cy="450" r="3.5" fill="#1f5f45"/>
+<path d="M1570,450 V883" fill="none" stroke="#1f5f45" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1570" cy="450" r="3.5" fill="#1f5f45"/>
+<path d="M760,770 V830 H1570 V883" fill="none" stroke="#c98a12" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="760" cy="770" r="3.5" fill="#c98a12"/>
+<path d="M1130,770 V883" fill="none" stroke="#c98a12" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1130" cy="770" r="3.5" fill="#c98a12"/>
+<path d="M1340,770 V830 H1570 V883" fill="none" stroke="#c98a12" stroke-width="2" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="1340" cy="770" r="3.5" fill="#c98a12"/>
+<line x1="280" y1="287" x2="280" y2="320" stroke="#222" stroke-width="2"/>
+<path d="M265,278 A15,15 0 0 1 295,278" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="280" cy="278" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="300" y="297" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IRecomendacao</text>
+<line x1="900" y1="287" x2="900" y2="320" stroke="#222" stroke-width="2"/>
+<path d="M885,278 A15,15 0 0 1 915,278" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="900" cy="278" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="920" y="297" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IDashboard</text>
+<line x1="1575" y1="287" x2="1575" y2="320" stroke="#222" stroke-width="2"/>
+<path d="M1560,278 A15,15 0 0 1 1590,278" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="1575" cy="278" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="1595" y="297" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IAutenticacao</text>
+<line x1="650" y1="617" x2="650" y2="650" stroke="#222" stroke-width="2"/>
+<path d="M635,608 A15,15 0 0 1 665,608" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="650" cy="608" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="670" y="627" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">ICadastro</text>
+<line x1="1150" y1="617" x2="1150" y2="650" stroke="#222" stroke-width="2"/>
+<path d="M1135,608 A15,15 0 0 1 1165,608" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="1150" cy="608" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="1170" y="627" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IMonitoramento</text>
+<line x1="1290" y1="617" x2="1290" y2="650" stroke="#222" stroke-width="2"/>
+<path d="M1275,608 A15,15 0 0 1 1305,608" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="1290" cy="608" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="1310" y="627" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IOcupacao</text>
+<line x1="205" y1="907" x2="205" y2="940" stroke="#222" stroke-width="2"/>
+<path d="M190,898 A15,15 0 0 1 220,898" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="205" cy="898" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="225" y="917" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">ILLM</text>
+<line x1="535" y1="907" x2="535" y2="940" stroke="#222" stroke-width="2"/>
+<path d="M520,898 A15,15 0 0 1 550,898" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="535" cy="898" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="555" y="917" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IClima</text>
+<line x1="1130" y1="907" x2="1130" y2="940" stroke="#222" stroke-width="2"/>
+<path d="M1115,898 A15,15 0 0 1 1145,898" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="1130" cy="898" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="1150" y="917" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">ISatelite</text>
+<line x1="1570" y1="907" x2="1570" y2="940" stroke="#222" stroke-width="2"/>
+<path d="M1555,898 A15,15 0 0 1 1585,898" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="1570" cy="898" r="9" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="1590" y="917" font-size="14" font-style="italic" font-weight="700" fill="#222" paint-order="stroke" stroke="#ffffff" stroke-width="5">IRepositorio</text>
+<rect x="470" y="80" width="270" height="110" rx="6" fill="#eef2f7" stroke="#5b6b82" stroke-width="2.2"/>
+<rect x="706" y="92" width="22" height="26" fill="#fff" stroke="#5b6b82" stroke-width="1.5"/>
+<rect x="700" y="97" width="12" height="6" fill="#fff" stroke="#5b6b82" stroke-width="1.5"/>
+<rect x="700" y="107" width="12" height="6" fill="#fff" stroke="#5b6b82" stroke-width="1.5"/>
+<text x="486" y="106" font-size="13" fill="#3d4b60">«component» · aplicação</text>
+<text x="486" y="132" font-size="20" font-weight="700" fill="#16211c">AgendadorDaRotina</text>
+<text x="486" y="174" font-size="13" fill="#4a5650">cron · a cada X dias · Gantt 4, 9</text>
+<rect x="1060" y="80" width="300" height="110" rx="6" fill="#eef2f7" stroke="#5b6b82" stroke-width="2.2"/>
+<rect x="1326" y="92" width="22" height="26" fill="#fff" stroke="#5b6b82" stroke-width="1.5"/>
+<rect x="1320" y="97" width="12" height="6" fill="#fff" stroke="#5b6b82" stroke-width="1.5"/>
+<rect x="1320" y="107" width="12" height="6" fill="#fff" stroke="#5b6b82" stroke-width="1.5"/>
+<text x="1076" y="106" font-size="13" fill="#3d4b60">«component» · aplicação</text>
+<text x="1076" y="132" font-size="20" font-weight="700" fill="#16211c">AplicacaoWeb</text>
+<text x="1076" y="174" font-size="13" fill="#4a5650">navegador · EAP 4.3 · Gantt 3, 8</text>
+<rect x="120" y="320" width="320" height="130" rx="6" fill="#fde8e4" stroke="#c0392b" stroke-width="2.2"/>
+<rect x="406" y="332" width="22" height="26" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="400" y="337" width="12" height="6" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<rect x="400" y="347" width="12" height="6" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="136" y="346" font-size="13" fill="#a5301f">«component» · core</text>
+<text x="136" y="372" font-size="20" font-weight="700" fill="#16211c">AgenteDeManejo</text>
+<text x="136" y="434" font-size="13" fill="#4a5650">EAP 1.1 · Gantt 6, 7</text>
+<rect x="760" y="320" width="280" height="130" rx="6" fill="#e3f1ea" stroke="#1f5f45" stroke-width="2.2"/>
+<rect x="1006" y="332" width="22" height="26" fill="#fff" stroke="#1f5f45" stroke-width="1.5"/>
+<rect x="1000" y="337" width="12" height="6" fill="#fff" stroke="#1f5f45" stroke-width="1.5"/>
+<rect x="1000" y="347" width="12" height="6" fill="#fff" stroke="#1f5f45" stroke-width="1.5"/>
+<text x="776" y="346" font-size="13" fill="#1f5f45">«component» · generic</text>
+<text x="776" y="372" font-size="20" font-weight="700" fill="#16211c">HistoricoDashboard</text>
+<text x="776" y="434" font-size="13" fill="#4a5650">EAP 4.1 · Gantt 8</text>
+<rect x="1430" y="320" width="290" height="130" rx="6" fill="#e3f1ea" stroke="#1f5f45" stroke-width="2.2"/>
+<rect x="1686" y="332" width="22" height="26" fill="#fff" stroke="#1f5f45" stroke-width="1.5"/>
+<rect x="1680" y="337" width="12" height="6" fill="#fff" stroke="#1f5f45" stroke-width="1.5"/>
+<rect x="1680" y="347" width="12" height="6" fill="#fff" stroke="#1f5f45" stroke-width="1.5"/>
+<text x="1446" y="346" font-size="13" fill="#1f5f45">«component» · generic</text>
+<text x="1446" y="372" font-size="20" font-weight="700" fill="#16211c">Autenticacao</text>
+<text x="1446" y="434" font-size="13" fill="#4a5650">EAP 4.2 · Gantt 3</text>
+<rect x="500" y="650" width="300" height="120" rx="6" fill="#fff4dc" stroke="#c98a12" stroke-width="2.2"/>
+<rect x="766" y="662" width="22" height="26" fill="#fff" stroke="#c98a12" stroke-width="1.5"/>
+<rect x="760" y="667" width="12" height="6" fill="#fff" stroke="#c98a12" stroke-width="1.5"/>
+<rect x="760" y="677" width="12" height="6" fill="#fff" stroke="#c98a12" stroke-width="1.5"/>
+<text x="516" y="676" font-size="13" fill="#8d5f06">«component» · support</text>
+<text x="516" y="702" font-size="20" font-weight="700" fill="#16211c">Cadastros</text>
+<text x="516" y="754" font-size="13" fill="#4a5650">EAP 3 · Gantt 2</text>
+<rect x="1060" y="650" width="320" height="120" rx="6" fill="#fff4dc" stroke="#c98a12" stroke-width="2.2"/>
+<rect x="1346" y="662" width="22" height="26" fill="#fff" stroke="#c98a12" stroke-width="1.5"/>
+<rect x="1340" y="667" width="12" height="6" fill="#fff" stroke="#c98a12" stroke-width="1.5"/>
+<rect x="1340" y="677" width="12" height="6" fill="#fff" stroke="#c98a12" stroke-width="1.5"/>
+<text x="1076" y="676" font-size="13" fill="#8d5f06">«component» · support</text>
+<text x="1076" y="702" font-size="20" font-weight="700" fill="#16211c">Monitoramento</text>
+<text x="1076" y="754" font-size="13" fill="#4a5650">EAP 2 · Gantt 4, 5</text>
+<rect x="60" y="940" width="290" height="110" rx="6" fill="#ebe9f7" stroke="#5b4fa8" stroke-width="2.2"/>
+<rect x="316" y="952" width="22" height="26" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="310" y="957" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="310" y="967" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<text x="76" y="966" font-size="13" fill="#473d8c">«component» · infra</text>
+<text x="76" y="992" font-size="20" font-weight="700" fill="#16211c">AdaptadorGemini</text>
+<text x="76" y="1034" font-size="13" fill="#4a5650">AQ-02 · Google Gemini</text>
+<rect x="390" y="940" width="290" height="110" rx="6" fill="#ebe9f7" stroke="#5b4fa8" stroke-width="2.2"/>
+<rect x="646" y="952" width="22" height="26" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="640" y="957" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="640" y="967" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<text x="406" y="966" font-size="13" fill="#473d8c">«component» · infra</text>
+<text x="406" y="992" font-size="20" font-weight="700" fill="#16211c">AdaptadorOpenMeteo</text>
+<text x="406" y="1034" font-size="13" fill="#4a5650">AQ-03 · Open-Meteo</text>
+<rect x="980" y="940" width="300" height="110" rx="6" fill="#ebe9f7" stroke="#5b4fa8" stroke-width="2.2"/>
+<rect x="1246" y="952" width="22" height="26" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="1240" y="957" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="1240" y="967" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<text x="996" y="966" font-size="13" fill="#473d8c">«component» · infra</text>
+<text x="996" y="992" font-size="20" font-weight="700" fill="#16211c">AdaptadorSentinel</text>
+<text x="996" y="1034" font-size="13" fill="#4a5650">AQ-01 · Sentinel-2 / Earth Engine</text>
+<rect x="1380" y="940" width="380" height="110" rx="6" fill="#ebe9f7" stroke="#5b4fa8" stroke-width="2.2"/>
+<rect x="1726" y="952" width="22" height="26" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="1720" y="957" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<rect x="1720" y="967" width="12" height="6" fill="#fff" stroke="#5b4fa8" stroke-width="1.5"/>
+<text x="1396" y="966" font-size="13" fill="#473d8c">«component» · infra</text>
+<text x="1396" y="992" font-size="20" font-weight="700" fill="#16211c">RepositorioPostgres</text>
+<text x="1396" y="1034" font-size="13" fill="#4a5650">PostgreSQL · Servidor de Banco</text>
+<text x="24" y="1109" font-size="15" font-weight="700" fill="#16211c">DDD</text>
+<rect x="74" y="1095" width="18" height="18" rx="3" fill="#fde8e4" stroke="#c0392b" stroke-width="2"/>
+<text x="100" y="1109" font-size="14" fill="#333">Core: o diferencial (decisão de manejo)</text>
+<rect x="410.9" y="1095" width="18" height="18" rx="3" fill="#fff4dc" stroke="#c98a12" stroke-width="2"/>
+<text x="436.9" y="1109" font-size="14" fill="#333">Support: apoia o core</text>
+<rect x="620.0" y="1095" width="18" height="18" rx="3" fill="#e3f1ea" stroke="#1f5f45" stroke-width="2"/>
+<text x="646.0" y="1109" font-size="14" fill="#333">Generic: comum a qualquer sistema</text>
+<rect x="914.3" y="1095" width="18" height="18" rx="3" fill="#ebe9f7" stroke="#5b4fa8" stroke-width="2"/>
+<text x="940.3" y="1109" font-size="14" fill="#333">Infra: banco e serviços comprados</text>
+<rect x="1208.6" y="1095" width="18" height="18" rx="3" fill="#eef2f7" stroke="#5b6b82" stroke-width="2"/>
+<text x="1234.6" y="1109" font-size="14" fill="#333">Aplicação: ponto de entrada</text>
+<circle cx="34" cy="1141" r="8" fill="#fff" stroke="#222" stroke-width="2"/>
+<text x="52" y="1146" font-size="14" fill="#333">interface fornecida</text>
+<path d="M210,1147 A13,13 0 0 1 236,1147" fill="none" stroke="#222" stroke-width="2"/>
+<text x="246" y="1146" font-size="14" fill="#333">interface requerida (soquete). A linha liga quem requer a quem fornece; a cor é a camada de quem requer.</text>
+</svg>

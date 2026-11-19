@@ -1,0 +1,46 @@
+Piquete 1 cadastrado.
+Piquete 2 cadastrado.
+Animais adicionados ao piquete.
+Animais removidos do piquete.
+Animais adicionados ao piquete.
+Solicitando imagem ao satelite...
+Enviando dados ao Gemini...
+Piquete 1: recomendacao salva.
+Solicitando imagem ao satelite...
+Enviando dados ao Gemini...
+Piquete 2: recomendacao salva.
+
+Piquete 1
+Area: 10000 m2
+Lotacao: 14
+Animais: {'bois': 7, 'vacas': 5, 'bezerros': 2}
+Ocupacao: Ocupado
+NDVI: 0.72
+Estado NDVI: Com recomendacao
+Recomendacao: Pastagem em boas condicoes. Monitorar lotacao.
+
+Piquete 2
+Area: 12000 m2
+Lotacao: 3
+Animais: {'bois': 3, 'vacas': 0, 'bezerros': 0}
+Ocupacao: Ocupado
+NDVI: 0.72
+Estado NDVI: Com recomendacao
+Recomendacao: Pastagem em boas condicoes. Monitorar lotacao.
+
+=== Criterios de qualidade ===
+Piquete 1 cadastrado.
+Piquete 2 cadastrado.
+Animais adicionados ao piquete.
+Animais removidos do piquete.
+Animais adicionados ao piquete.
+[OK] 3.1 poligono com 2 pontos rejeitado
+[OK] 3.1 area zero rejeitada
+[OK] 3.2 quantidade negativa rejeitada
+[OK] 3.2 quantidade fracionada rejeitada
+[OK] 3.2 categoria desconhecida rejeitada
+[OK] 2.2.1 mover mais do que existe rejeitado
+[OK] 2.2.1 soma das lotacoes = rebanho
+[OK] 2.2.1 nenhuma lotacao negativa
+[OK] DE transicao fora do diagrama rejeitada
+9/9 verificacoes aprovadas

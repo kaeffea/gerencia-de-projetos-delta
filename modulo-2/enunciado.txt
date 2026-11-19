@@ -1,0 +1,10 @@
+Nesta atividade prática, os alunos devem realizar as seguintes atividades:
+
+1) Receber o Treinamento de UML e as Instruções em Sala de Aula pelo professor. 
+ 
+2) Criar um Diagrama de Casos de Usos (DCU) e um Diagrama de Atividades (DA)  que identifiquem as principais funcionalidades de um projeto de software referente a temática de projeto selecionada. 
+
+3) Relacionar o conteúdo da ementa dado neste módulo com os diagramas UML (Casos de Uso e Diagrama de Atividades) 
+4) Apresentar (em formato PITCH) o DCU, o DA, EAP e Matriz RACI.
+
+5) Apresentação do PITCH em sala de aula, colocando os arquivos utilizados em anexo ao módulo correspondente.

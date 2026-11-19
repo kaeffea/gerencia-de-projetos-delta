@@ -1,0 +1,44 @@
+# Diagrama de Implantacao em codigo (infraestrutura como codigo, formato Blueprint do Render).
+# Cada servico abaixo e um no do DI; o banco e o "Servidor de Banco".
+# Descritor do alvo de implantacao do MVP: os caminhos (maneja/api.py, rotina_ndvi.py)
+# sao os que o repositorio vai ter. Conferir planos e precos no Render antes de aplicar.
+
+services:
+  # No: Servidor de Aplicacao  ->  artefatos maneja-api + maneja-web (estaticos)
+  - type: web
+    name: maneja-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn maneja.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /saude
+    envVars:
+      - key: DATABASE_URL            # conexao "TCP 5432 - SQL com TLS"
+        fromDatabase:
+          name: maneja-db
+          property: connectionString
+      - key: GEMINI_API_KEY          # AQ-02
+        sync: false
+      - key: EARTH_ENGINE_KEY        # AQ-01
+        sync: false
+      - key: COTA_GEMINI_DIARIA      # risco R7
+        value: "50"
+
+  # No: Servidor de Rotina  ->  artefato rotina_ndvi.py (AgendadorDaRotina)
+  - type: cron
+    name: maneja-rotina-ndvi
+    runtime: python
+    schedule: "0 9 */5 * *"          # a cada 5 dias, 09:00 UTC
+    buildCommand: pip install -r requirements.txt
+    startCommand: python rotina_ndvi.py   # chama POST /rotinas/ndvi por HTTPS
+    envVars:
+      - key: API_URL                 # endereco publico do Servidor de Aplicacao
+        value: https://maneja-api.onrender.com
+      - key: TOKEN_ROTINA
+        sync: false
+
+# No: Servidor de Banco  ->  artefato maneja_db (schema.sql)
+databases:
+  - name: maneja-db
+    plan: free
+    databaseName: maneja

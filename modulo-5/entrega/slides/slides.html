@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Módulo 5 · Manejo Inteligente de Bois</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root {
+    --verde: #1f5f45; --verde-claro: #e6efea; --verde-vivo: #3fcf8e;
+    --tinta: #16211c; --cinza: #6b7a72; --linha: #d5dcd8;
+    --core: #c0392b; --support: #c98a12; --generic: #1f5f45; --infra: #5b4fa8; --app: #5b6b82;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: "Liberation Sans", Arial, sans-serif; color: var(--tinta); }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; page-break-after: always; padding: 44px 56px 36px; background: #fff; }
+  .slide:last-child { page-break-after: auto; }
+  .rotulo { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: var(--verde); text-transform: uppercase; }
+  h1 { font-size: 38px; font-weight: 700; margin-top: 6px; line-height: 1.1; }
+  .sub { font-size: 17px; color: var(--cinza); margin-top: 8px; }
+  .num { position: absolute; right: 30px; bottom: 18px; font-size: 12px; color: var(--cinza); }
+
+  /* capa */
+  .capa { padding: 0; color: #fff; background: #0e1a14 url("img/capa.jpg") center/cover; }
+  .capa::before { content: ""; position: absolute; inset: 0; background: rgba(8, 18, 13, .62); }
+  .capa .canto { position: absolute; width: 90px; height: 90px; border: 4px solid var(--verde-vivo); }
+  .capa .c1 { left: 56px; top: 44px; border-right: 0; border-bottom: 0; }
+  .capa .c2 { right: 56px; top: 44px; border-left: 0; border-bottom: 0; }
+  .capa .c3 { left: 56px; bottom: 44px; border-right: 0; border-top: 0; }
+  .capa .c4 { right: 56px; bottom: 44px; border-left: 0; border-top: 0; }
+  .capa .meio { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .capa h1 { font-size: 52px; }
+  .capa .tag { font-size: 24px; color: #c9d4ce; margin-top: 6px; }
+  .capa .mod { font-size: 26px; color: #c9d4ce; margin-top: 4px; letter-spacing: 1px; }
+  .capa .itens { margin-top: 26px; font-size: 22px; line-height: 1.5; color: var(--verde-vivo); }
+  .capa .nomes { margin-top: 30px; font-size: 18px; line-height: 1.5; color: #fff; }
+
+  /* imagem cheia */
+  .fig { position: absolute; left: 56px; right: 56px; top: 150px; bottom: 30px; display: flex; align-items: center; justify-content: center; }
+  .fig img { max-width: 100%; max-height: 100%; }
+
+  /* tabelas */
+  table { border-collapse: collapse; width: 100%; margin-top: 24px; font-size: 16px; }
+  table.grande { font-size: 18px; margin-top: 30px; } table.grande td { padding: 11px 14px; } table.grande th { font-size: 16px; padding: 12px 14px; }
+  th { background: var(--verde); color: #fff; text-align: left; padding: 9px 12px; font-size: 14px; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--linha); vertical-align: top; line-height: 1.35; }
+  tr:nth-child(even) td { background: var(--verde-claro); }
+  td:first-child { white-space: nowrap; }
+  .tag-c { display: inline-block; padding: 2px 9px; border-radius: 10px; color: #fff; font-size: 13px; font-weight: 700; }
+  code, .mono { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 13.5px; }
+  td code { background: #fff; border: 1px solid var(--linha); border-radius: 4px; padding: 0 4px; }
+
+  /* código */
+  pre { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 15px; line-height: 1.5; background: #0f1a15; color: #dfe9e3; border-radius: 10px; padding: 18px 22px; white-space: pre; overflow: hidden; }
+  pre .k { color: #7fd6a8; } pre .c { color: #8a9a92; font-style: italic; } pre .s { color: #f0c674; } pre .r { color: #ff8f80; font-weight: 700; }
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+  .rot-code { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--cinza); text-transform: uppercase; margin-bottom: 8px; }
+
+  .nota { margin-top: 16px; background: var(--verde-claro); border-left: 5px solid var(--verde); padding: 12px 16px; font-size: 15.5px; line-height: 1.45; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 80px; }
+  .card { background: var(--verde); color: #fff; border-radius: 12px; padding: 30px 24px; min-height: 240px; }
+  .card b { display: block; font-size: 64px; color: var(--verde-vivo); }
+  .card span { display: block; font-size: 19px; margin-top: 8px; line-height: 1.35; }
+  .escuro { background: #0e1a14; color: #fff; }
+  .escuro .rotulo { color: var(--verde-vivo); }
+  .escuro .sub { color: #b9c6bf; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide capa">
+  <div class="canto c1"></div><div class="canto c2"></div><div class="canto c3"></div><div class="canto c4"></div>
+  <div class="meio">
+    <h1>Manejo Inteligente de Bois</h1>
+    <div class="tag">Revolucionando a Pecuária com Tecnologia e Processos</div>
+    <div class="mod">MÓDULO 5</div>
+    <div class="itens">Diagrama de Componentes<br>Diagrama de Implantação<br>Snippet Code<br>Gestão de Riscos e de Aquisições</div>
+    <div class="nomes">Jackson - João Pedro - Jota - Júlia Pereira<br>Kauê - Leandro Cavalcante - Leo Lima - Maria Antônia</div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="rotulo">Componentes</div>
+  <h1>Diagrama de Componentes</h1>
+  <div class="fig" style="top:108px; bottom:6px"><img src="../diagramas/diagrama-de-componentes.svg" alt="Diagrama de Componentes"></div>
+  <div class="num">2</div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="rotulo">Componentes · DDD</div>
+  <h1>Como dividimos os componentes</h1>
+  <div class="sub">Domain-Driven Design: o que é diferencial, o que apoia e o que é comum. Cada componente aponta para a EAP e o Gantt</div>
+  <table>
+    <tr><th style="width:150px">Camada</th><th>Componentes</th><th style="width:170px">Pacote da EAP</th><th style="width:160px">Atividades do Gantt</th><th>Por que está aqui</th></tr>
+    <tr><td><span class="tag-c" style="background:var(--core)">Core</span></td><td>AgenteDeManejo</td><td>1.1 Agente Inteligente</td><td>6, 7</td><td>É o diferencial: decide para onde e quando mover o gado</td></tr>
+    <tr><td><span class="tag-c" style="background:var(--support)">Support</span></td><td>Cadastros, Monitoramento</td><td>3 Cadastros, 2 Monitoramento</td><td>2, 4, 5</td><td>Dão ao core os dados de piquete, rebanho e NDVI</td></tr>
+    <tr><td><span class="tag-c" style="background:var(--generic)">Generic</span></td><td>Autenticacao, HistoricoDashboard</td><td>4.2, 4.1</td><td>3, 8</td><td>Qualquer sistema tem; não é o que nos diferencia</td></tr>
+    <tr><td><span class="tag-c" style="background:var(--infra)">Infra</span></td><td>RepositorioPostgres, AdaptadorSentinel, AdaptadorOpenMeteo, AdaptadorGemini</td><td>1.2, 2.2</td><td>2, 5, 6, 7, 9</td><td>Isolam o banco e os serviços comprados (aquisições)</td></tr>
+    <tr><td><span class="tag-c" style="background:var(--app)">Aplicação</span></td><td>AplicacaoWeb, AgendadorDaRotina</td><td>4.3, 2.1</td><td>3, 4, 8, 9</td><td>Pontos de entrada: o pecuarista e a rotina agendada</td></tr>
+  </table>
+  <div class="nota">A mesma divisão orienta a entrega do projeto na AB2: <b>core</b> primeiro (50%), depois <b>support</b> (25%) e <b>generic</b> (25%).</div>
+  <div class="num">3</div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="rotulo">Implantação</div>
+  <h1>Diagrama de Implantação</h1>
+  <div class="fig" style="top:108px; bottom:6px"><img src="../diagramas/diagrama-de-implantacao.svg" alt="Diagrama de Implantação"></div>
+  <div class="num">4</div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="rotulo">Implantação</div>
+  <h1>Nós, artefatos e conexões</h1>
+  <div class="sub">Três servidores na nuvem, dois tipos de cliente e três serviços externos</div>
+  <table class="grande">
+    <tr><th>Nó</th><th>Ambiente</th><th>Artefato</th><th>Componentes</th><th>Conexão</th></tr>
+    <tr><td>Computador do Pecuarista</td><td>Navegador web</td><td>maneja-web</td><td>AplicacaoWeb</td><td>HTTPS · REST/JSON + token</td></tr>
+    <tr><td>Celular / Tablet no campo</td><td>Navegador móvel</td><td>maneja-web</td><td>AplicacaoWeb</td><td>HTTPS · REST/JSON + token</td></tr>
+    <tr><td>Servidor de Aplicação (Render)</td><td>Python 3.12 + Uvicorn</td><td>maneja-api</td><td>core, support, generic e infra</td><td>recebe os clientes e a rotina</td></tr>
+    <tr><td>Servidor de Rotina (Render Cron)</td><td>Python 3.12</td><td>rotina_ndvi.py</td><td>AgendadorDaRotina</td><td>HTTPS · POST /rotinas/ndvi</td></tr>
+    <tr><td>Servidor de Banco (Render)</td><td>PostgreSQL 16</td><td>maneja_db</td><td>(dados do RepositorioPostgres)</td><td>TCP 5432 · SQL com TLS</td></tr>
+    <tr><td>Earth Engine · Open-Meteo · Gemini</td><td>serviços externos</td><td>—</td><td>usados pelos adaptadores</td><td>HTTPS</td></tr>
+  </table>
+  <div class="nota">No MVP todos os nós usam plano gratuito ou de baixo custo, como no Quadro de Custos do módulo 3. O <code>render.yaml</code> descreve esses mesmos nós como código.</div>
+  <div class="num">5</div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Do diagrama para o código</h1>
+  <div class="sub">Cada elemento dos dois diagramas tem um equivalente em Python (<code>main.py</code>)</div>
+  <table class="grande">
+    <tr><th style="width:290px">Elemento UML</th><th style="width:420px">No código</th><th>Exemplo</th></tr>
+    <tr><td>Interface fornecida (bolinha)</td><td>classe <code>Protocol</code> que o componente implementa</td><td><code>IRecomendacao</code>, <code>ISatelite</code></td></tr>
+    <tr><td>Interface requerida (soquete)</td><td>parâmetro do construtor do componente</td><td><code>AgenteDeManejo(cadastro, monitoramento, clima, llm, repo)</code></td></tr>
+    <tr><td>Componente</td><td>classe com <code>CAMADA</code>, <code>EAP</code>, <code>GANTT</code>, <code>FORNECE</code> e <code>REQUER</code></td><td>11 classes, uma por caixa do DC</td></tr>
+    <tr><td>Conector (bolinha + soquete)</td><td>injeção de dependência em <code>montar_sistema()</code></td><td><code>Cadastros(repo)</code></td></tr>
+    <tr><td>Nó e artefato</td><td>dataclasses <code>No</code> e <code>Artefato</code></td><td><code>No("Servidor de Rotina", ...)</code></td></tr>
+    <tr><td>Caminho de comunicação</td><td>tupla em <code>CONEXOES</code></td><td><code>("Servidor de Aplicacao", "Servidor de Banco", "TCP 5432")</code></td></tr>
+    <tr><td>Coerência entre os dois diagramas</td><td><code>conferir_componentes()</code> e <code>conferir_implantacao()</code></td><td>falha se faltar fornecedor, nó ou conexão</td></tr>
+  </table>
+  <div class="num">6</div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Componentes em código</h1>
+  <div class="duas">
+    <div>
+      <div class="rot-code">Interface e componente</div>
+<pre><span class="k">class</span> IRecomendacao(Protocol):      <span class="c"># bolinha</span>
+    <span class="k">def</span> recomendar(self, piquete_id, hoje)
+        -&gt; Recomendacao: ...
+
+<span class="k">class</span> AgenteDeManejo:               <span class="c"># core</span>
+    CAMADA, EAP, GANTT = <span class="s">"core"</span>, <span class="s">"1.1"</span>, (6, 7)
+    FORNECE = (<span class="s">"IRecomendacao"</span>,)
+    REQUER  = (<span class="s">"ICadastro"</span>, <span class="s">"IMonitoramento"</span>,
+               <span class="s">"IClima"</span>, <span class="s">"ILLM"</span>, <span class="s">"IRepositorio"</span>)
+
+    <span class="k">def</span> __init__(self, cadastro: ICadastro,
+                 monitoramento: IMonitoramento,
+                 clima: IClima, llm: ILLM,
+                 repo: IRepositorio):  <span class="c"># soquetes</span>
+        ...</pre>
+    </div>
+    <div>
+      <div class="rot-code">Montagem: os conectores</div>
+<pre><span class="k">def</span> montar_sistema(satelite, cota_gemini):
+    conferir_componentes()  <span class="c"># todo REQUER tem FORNECE</span>
+    repo = RepositorioPostgres()
+    cota = ControleDeCota(cota_gemini)   <span class="c"># R7</span>
+    clima = AdaptadorOpenMeteo()         <span class="c"># AQ-03</span>
+    llm = AdaptadorGemini(cota)          <span class="c"># AQ-02</span>
+    cadastros = Cadastros(repo)
+    monit = Monitoramento(satelite, repo)
+    agente = AgenteDeManejo(cadastros, monit,
+                            clima, llm, repo)
+    auth = Autenticacao(repo)
+    dashboard = HistoricoDashboard(cadastros, repo)
+    web = AplicacaoWeb(auth, cadastros,
+                       monit, dashboard)
+    rotina = AgendadorDaRotina(cadastros,
+                               monit, agente)</pre>
+    </div>
+  </div>
+  <div class="num">7</div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Implantação em código</h1>
+  <div class="duas">
+    <div>
+      <div class="rot-code">main.py · nós, artefatos e conexões</div>
+<pre>NOS = (
+  No(<span class="s">"Servidor de Aplicacao"</span>, <span class="s">"Render Web Service"</span>,
+     <span class="s">"Python 3.12 + Uvicorn"</span>, (
+       Artefato(<span class="s">"maneja-api"</span>, (Autenticacao,
+         Cadastros, Monitoramento, AgenteDeManejo,
+         HistoricoDashboard, RepositorioPostgres,
+         AdaptadorSentinel, AdaptadorOpenMeteo,
+         AdaptadorGemini)),)),
+  No(<span class="s">"Servidor de Rotina"</span>, <span class="s">"Render Cron Job"</span>,
+     <span class="s">"Python 3.12"</span>, (Artefato(<span class="s">"rotina_ndvi.py"</span>,
+       (AgendadorDaRotina,)),)),
+  ...)
+
+CONEXOES = (
+  (<span class="s">"Servidor de Rotina"</span>, <span class="s">"Servidor de Aplicacao"</span>,
+   <span class="s">"HTTPS - POST /rotinas/ndvi"</span>), ...)
+
+conferir_implantacao()  <span class="c"># sem nó ou sem conexão = erro</span></pre>
+    </div>
+    <div>
+      <div class="rot-code">render.yaml · o mesmo DI para o Render</div>
+<pre>services:
+  - type: <span class="s">web</span>             <span class="c"># Servidor de Aplicação</span>
+    name: <span class="s">maneja-api</span>
+    plan: <span class="s">free</span>
+    startCommand: uvicorn maneja.api:app
+    envVars:
+      - key: DATABASE_URL  <span class="c"># TCP 5432</span>
+        fromDatabase: { name: maneja-db }
+      - key: GEMINI_API_KEY  <span class="c"># AQ-02</span>
+  - type: <span class="s">cron</span>            <span class="c"># Servidor de Rotina</span>
+    name: <span class="s">maneja-rotina-ndvi</span>
+    schedule: <span class="s">"0 9 */5 * *"</span>
+    startCommand: python rotina_ndvi.py
+databases:                <span class="c"># Servidor de Banco</span>
+  - name: <span class="s">maneja-db</span>
+    plan: <span class="s">free</span></pre>
+    </div>
+  </div>
+  <div class="num">8</div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Saída do teste</h1>
+  <div class="sub">Três piquetes, duas rotinas agendadas e o dashboard. Satélite, clima e Gemini são simulados</div>
+<pre style="margin-top:20px; font-size:14.5px; line-height:1.55">=== 1. Conferencia do DC e do DI ===
+Todas as interfaces requeridas tem fornecedor e todos os nos que conversam estao conectados.
+
+=== 6. Movimentacao de animais ===
+  Norte recebeu 17 animais; 3 bois foram para o Sul.
+  Barrado (criterio 2.2.1, lotacao nunca negativa): Quantidade invalida: bois=-5
+
+=== 7. Rotina agendada de hoje (Servidor de Rotina -&gt; Servidor de Aplicacao) ===
+    <span class="r">[R3]</span> Piquete Norte: IA respondeu 'MANTER o lote', mas a regra decidiu RETIRAR. Texto da IA descartado.
+    <span class="r">[R6]</span> Piquete Sul: imagem com 85% de nuvem descartada; vale a ultima leitura limpa (15/11).
+    <span class="r">[R7]</span> Alerta: 3/3 chamadas da cota gratuita usadas.
+    Piquete Leste: satelite sem imagem para o periodo.
+  Piquete 1: RETIRAR      via regra
+  Piquete 2: MANTER       via gemini
+  Piquete 3: SEM_DADOS    via regra
+
+=== 8. Dashboard ===
+  Piquete Norte: lotacao 14 {'bois': 7, 'vacas': 5, 'bezerros': 2}
+      NDVI 0.42 em 19/11 | RETIRAR: NDVI 0.42, 14.0 cab/ha, chuva 7d 12 mm. [regra]
+  Piquete Sul: lotacao 3 {'bois': 3, 'vacas': 0, 'bezerros': 0}
+      NDVI 0.74 em 15/11 | MANTER o lote. Pastagem em boas condicoes, monitorar a lotacao. [gemini]</pre>
+  <div class="num">9</div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="rotulo">Ementa · Gestão de riscos</div>
+  <h1>Os riscos viraram código</h1>
+  <div class="sub">Respostas do Registro de Riscos que ficam dentro dos componentes</div>
+  <table>
+    <tr><th style="width:250px">Risco (registro)</th><th style="width:240px">Onde no diagrama</th><th>Resposta no código</th></tr>
+    <tr><td><b>R3</b> · Agente de IA recomendar manejo errado</td><td>AgenteDeManejo (core)</td><td>A regra decide a ação e o Gemini só escreve o texto. Texto que contradiz a regra é descartado</td></tr>
+    <tr><td><b>R6</b> · Nuvens nas imagens de satélite</td><td>Monitoramento + AdaptadorSentinel</td><td>Imagem com mais de 30% de nuvem é descartada; vale a última leitura limpa por até 7 dias (critério 1.1.1)</td></tr>
+    <tr><td><b>R7</b> · Fim da cota dos planos gratuitos</td><td>AdaptadorGemini (ControleDeCota)</td><td>Alerta acima de 80% da cota. Se acabar, usa o texto padrão e a rotina não para</td></tr>
+    <tr><td><b>R2</b> · Atraso na integração (atividade 9)</td><td>montagem e implantação</td><td><code>conferir_componentes()</code> e <code>conferir_implantacao()</code> acusam peça ou conexão faltando antes de integrar</td></tr>
+    <tr><td><b>Qualidade 2.2.1</b> · lotação nunca negativa</td><td>Monitoramento (IOcupacao)</td><td>Quantidade negativa, não inteira ou de categoria desconhecida é rejeitada antes de alterar o piquete</td></tr>
+  </table>
+  <div class="nota">Isolar cada serviço externo num adaptador diminui o impacto dos riscos de fornecedor: se um serviço falha ou muda de preço, o problema fica num componente só.</div>
+  <div class="num">10</div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="rotulo">Ementa · Gestão de aquisições</div>
+  <h1>Cada aquisição tem um lugar nos diagramas</h1>
+  <div class="sub">Itens do Quadro de Aquisições (AQ-01 a AQ-06) ligados aos componentes e aos nós</div>
+  <table>
+    <tr><th style="width:84px">ID</th><th style="width:250px">Item</th><th style="width:250px">Make-or-buy</th><th>No Diagrama de Componentes</th><th>No Diagrama de Implantação</th></tr>
+    <tr><td>AQ-01</td><td>Imagens de satélite / NDVI</td><td>Comprar / usar gratuito</td><td>AdaptadorSentinel (ISatelite)</td><td>Google Earth Engine</td></tr>
+    <tr><td>AQ-02</td><td>Modelo de linguagem (LLM)</td><td>Comprar: modelo próprio inviável</td><td>AdaptadorGemini (ILLM)</td><td>Google Gemini API</td></tr>
+    <tr><td>AQ-03</td><td>API de previsão do tempo</td><td>Comprar / usar gratuito</td><td>AdaptadorOpenMeteo (IClima)</td><td>Open-Meteo</td></tr>
+    <tr><td>AQ-04</td><td>Infraestrutura em nuvem</td><td>Comprar: evita servidor físico</td><td>—</td><td>Servidores de Aplicação, Rotina e Banco</td></tr>
+    <tr><td>AQ-05</td><td>Mapa base dos piquetes</td><td>Usar gratuito</td><td>AplicacaoWeb</td><td>artefato maneja-web (Leaflet + OSM)</td></tr>
+    <tr><td>AQ-06</td><td>Domínio e certificado HTTPS</td><td>Comprar</td><td>—</td><td>conexões HTTPS do Servidor de Aplicação</td></tr>
+  </table>
+  <div class="nota"><b>Fazer o core, comprar o resto.</b> A equipe desenvolve o que é diferencial (AgenteDeManejo). O que é commodity entra por uma interface: trocar de fornecedor é escrever outro adaptador, e o core não muda.</div>
+  <div class="num">11</div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <div class="rotulo">Ementa · Software de gestão de projetos</div>
+  <h1>Trello: um cartão, um pedaço da arquitetura</h1>
+  <div style="display:grid; grid-template-columns: 1.15fr 1fr; gap: 24px; margin-top: 20px;">
+    <div><img src="img/trello.png" alt="Quadro Maneja no Trello" style="width:100%; border:1px solid var(--linha); border-radius:8px"></div>
+    <table style="margin-top:0; font-size:14px">
+      <tr><th>Cartão (atividade do Gantt)</th><th>Componentes</th></tr>
+      <tr><td>2 · Cadastros</td><td>Cadastros</td></tr>
+      <tr><td>3 · Autenticação e UI</td><td>Autenticacao, AplicacaoWeb</td></tr>
+      <tr><td>4 · Monitoramento de área</td><td>Monitoramento, AgendadorDaRotina</td></tr>
+      <tr><td>5 · Mapa e ocupação</td><td>Monitoramento, AdaptadorSentinel</td></tr>
+      <tr><td>6 · Análises</td><td>AgenteDeManejo, AdaptadorOpenMeteo</td></tr>
+      <tr><td>7 · Agente inteligente</td><td>AgenteDeManejo, AdaptadorGemini</td></tr>
+      <tr><td>8 · Histórico e dashboard</td><td>HistoricoDashboard, AplicacaoWeb</td></tr>
+      <tr><td>9 · Integração</td><td>montagem, implantação, render.yaml</td></tr>
+    </table>
+  </div>
+  <div class="nota" style="margin-top:14px">O atributo <code>GANTT</code> de cada componente guarda o número do cartão. Assim o andamento no Trello mostra quais peças dos diagramas já estão prontas. Código e diagramas ficam versionados no GitHub.</div>
+  <div class="num">12</div>
+</section>
+
+<!-- 13 -->
+<section class="slide escuro">
+  <div class="rotulo">Resumo</div>
+  <h1>Módulo 5 em números</h1>
+  <div class="sub">Os dois diagramas, conferidos um contra o outro no código</div>
+  <div class="cards">
+    <div class="card"><b>11</b><span>componentes, separados em core, support, generic e infra</span></div>
+    <div class="card"><b>10</b><span>interfaces, todas com fornecedor conferido no código</span></div>
+    <div class="card"><b>8</b><span>nós e 7 conexões no Diagrama de Implantação</span></div>
+    <div class="card"><b>4 + 6</b><span>riscos do registro respondidos no código e aquisições mapeadas</span></div>
+  </div>
+  <div class="sub" style="margin-top:60px; font-size:19px; color:#fff">Arquivos: <span class="mono" style="font-size:17px">main.py</span> · <span class="mono" style="font-size:17px">render.yaml</span> · <span class="mono" style="font-size:17px">diagramas/</span> · <span class="mono" style="font-size:17px">saida-do-teste.txt</span></div>
+  <div class="num" style="color:#b9c6bf">13</div>
+</section>
+
+</body>
+</html>

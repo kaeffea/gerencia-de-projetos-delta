@@ -1,0 +1,62 @@
+
+=== 1. Conferencia do DC e do DI ===
+Todas as interfaces requeridas tem fornecedor e todos os nos que conversam estao conectados.
+  aplicacao AplicacaoWeb (EAP 4.3, Gantt 3, 8); AgendadorDaRotina (EAP 2.1, Gantt 4, 9)
+  core      AgenteDeManejo (EAP 1.1, Gantt 6, 7)
+  support   Cadastros (EAP 3, Gantt 2); Monitoramento (EAP 2, Gantt 4, 5)
+  generic   Autenticacao (EAP 4.2, Gantt 3); HistoricoDashboard (EAP 4.1, Gantt 8)
+  infra     RepositorioPostgres (EAP -, Gantt 2, 9); AdaptadorSentinel (EAP 2.2, Gantt 5); AdaptadorOpenMeteo (EAP 1.2, Gantt 6); AdaptadorGemini (EAP 1.1, Gantt 7)
+
+=== 2. Onde cada componente roda (DI) ===
+  <<device>> Computador do Pecuarista [Navegador web]
+      <<artifact>> maneja-web (HTML/JS): AplicacaoWeb
+  <<device>> Celular / Tablet no campo [Navegador movel]
+      <<artifact>> maneja-web (HTML/JS): AplicacaoWeb
+  <<Render Web Service>> Servidor de Aplicacao [Python 3.12 + Uvicorn]
+      <<artifact>> maneja-api: Autenticacao, Cadastros, Monitoramento, AgenteDeManejo, HistoricoDashboard, RepositorioPostgres, AdaptadorSentinel, AdaptadorOpenMeteo, AdaptadorGemini
+      <<artifact>> maneja-web (arquivos estaticos): -
+  <<Render Cron Job>> Servidor de Rotina [Python 3.12]
+      <<artifact>> rotina_ndvi.py: AgendadorDaRotina
+  <<Render PostgreSQL>> Servidor de Banco [PostgreSQL 16]
+      <<artifact>> maneja_db (schema.sql): -
+  <<servico externo>> Google Earth Engine [Sentinel-2]
+  <<servico externo>> Open-Meteo [API REST]
+  <<servico externo>> Google Gemini API [API REST]
+
+=== 3. Aquisicoes por tras dos adaptadores ===
+  AQ-01 AdaptadorSentinel    fornecedor: Copernicus Sentinel-2 via Earth Engine (uso nao comercial gratuito)
+  AQ-03 AdaptadorOpenMeteo   fornecedor: Open-Meteo (plano gratuito)
+  AQ-02 AdaptadorGemini      fornecedor: Google Gemini (cota gratuita)
+
+=== 4. Login e cadastro (Aplicacao Web -> Servidor de Aplicacao) ===
+  Sem login: 401: token ausente ou expirado.
+  3 piquetes cadastrados (o Leste ainda nao tem imagem de satelite).
+
+=== 5. Rotina agendada de 4 dias atras (piquetes ainda vazios) ===
+    Piquete Norte: satelite sem imagem para o periodo.
+    [R3] Piquete Sul: IA respondeu 'MANTER o lote', mas a regra decidiu PODE_RECEBER. Texto da IA descartado.
+    Piquete Leste: satelite sem imagem para o periodo.
+  Piquete 1: SEM_DADOS    via regra
+  Piquete 2: PODE_RECEBER via regra
+  Piquete 3: SEM_DADOS    via regra
+
+=== 6. Movimentacao de animais ===
+  Norte recebeu 17 animais; 3 bois foram para o Sul.
+  Barrado (criterio 2.2.1, lotacao nunca negativa): Quantidade invalida: bois=-5
+
+=== 7. Rotina agendada de hoje (Servidor de Rotina -> Servidor de Aplicacao) ===
+    [R3] Piquete Norte: IA respondeu 'MANTER o lote', mas a regra decidiu RETIRAR. Texto da IA descartado.
+    [R6] Piquete Sul: imagem com 85% de nuvem descartada; vale a ultima leitura limpa (15/11).
+    [R7] Alerta: 3/3 chamadas da cota gratuita usadas.
+    Piquete Leste: satelite sem imagem para o periodo.
+  Piquete 1: RETIRAR      via regra
+  Piquete 2: MANTER       via gemini
+  Piquete 3: SEM_DADOS    via regra
+
+=== 8. Dashboard ===
+  Piquete Norte: lotacao 14 {'bois': 7, 'vacas': 5, 'bezerros': 2}
+      NDVI 0.42 em 19/11 | RETIRAR: NDVI 0.42, 14.0 cab/ha, chuva 7d 12 mm. [regra]
+  Piquete Sul: lotacao 3 {'bois': 3, 'vacas': 0, 'bezerros': 0}
+      NDVI 0.74 em 15/11 | MANTER o lote. Pastagem em boas condicoes, monitorar a lotacao. [gemini]
+  Piquete Leste: lotacao 0 {'bois': 0, 'vacas': 0, 'bezerros': 0}
+      NDVI sem leitura | Sem leitura NDVI valida nos ultimos 7 dias. [regra]

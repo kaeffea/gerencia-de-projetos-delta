@@ -1,0 +1,13 @@
+# Repositórios próprios, clonados aqui só para consulta
+/maneja/
+/seugado/
+
+# Acima do limite de 100 MB do GitHub
+*.mp4
+
+# Lixo de sistema e de Python
+*:Zone.Identifier
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Módulo 4 · Manejo Inteligente de Bois</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root {
+    --verde: #1f5f45; --verde-claro: #e6efea; --verde-vivo: #3fcf8e;
+    --tinta: #16211c; --cinza: #6b7a72; --linha: #d5dcd8;
+    --core: #c0392b; --support: #c98a12; --generic: #1f5f45; --infra: #5b4fa8; --app: #5b6b82;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: "Liberation Sans", Arial, sans-serif; color: var(--tinta); }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; page-break-after: always; padding: 44px 56px 36px; background: #fff; }
+  .slide:last-child { page-break-after: auto; }
+  .rotulo { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: var(--verde); text-transform: uppercase; }
+  h1 { font-size: 38px; font-weight: 700; margin-top: 6px; line-height: 1.1; }
+  .sub { font-size: 17px; color: var(--cinza); margin-top: 8px; }
+  .num { position: absolute; right: 30px; bottom: 18px; font-size: 12px; color: var(--cinza); }
+
+  /* capa */
+  .capa { padding: 0; color: #fff; background: #0e1a14 url("img/capa.jpg") center/cover; }
+  .capa::before { content: ""; position: absolute; inset: 0; background: rgba(8, 18, 13, .62); }
+  .capa .canto { position: absolute; width: 90px; height: 90px; border: 4px solid var(--verde-vivo); }
+  .capa .c1 { left: 56px; top: 44px; border-right: 0; border-bottom: 0; }
+  .capa .c2 { right: 56px; top: 44px; border-left: 0; border-bottom: 0; }
+  .capa .c3 { left: 56px; bottom: 44px; border-right: 0; border-top: 0; }
+  .capa .c4 { right: 56px; bottom: 44px; border-left: 0; border-top: 0; }
+  .capa .meio { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .capa h1 { font-size: 52px; }
+  .capa .tag { font-size: 24px; color: #c9d4ce; margin-top: 6px; }
+  .capa .mod { font-size: 26px; color: #c9d4ce; margin-top: 4px; letter-spacing: 1px; }
+  .capa .itens { margin-top: 26px; font-size: 22px; line-height: 1.5; color: var(--verde-vivo); }
+  .capa .nomes { margin-top: 30px; font-size: 18px; line-height: 1.5; color: #fff; }
+
+  /* imagem cheia */
+  .fig { position: absolute; left: 56px; right: 56px; top: 150px; bottom: 30px; display: flex; align-items: center; justify-content: center; }
+  .fig img { max-width: 100%; max-height: 100%; }
+
+  /* tabelas */
+  table { border-collapse: collapse; width: 100%; margin-top: 24px; font-size: 16px; }
+  table.grande { font-size: 18px; margin-top: 30px; } table.grande td { padding: 11px 14px; } table.grande th { font-size: 16px; padding: 12px 14px; }
+  th { background: var(--verde); color: #fff; text-align: left; padding: 9px 12px; font-size: 14px; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--linha); vertical-align: top; line-height: 1.35; }
+  tr:nth-child(even) td { background: var(--verde-claro); }
+  td:first-child { white-space: nowrap; }
+  .tag-c { display: inline-block; padding: 2px 9px; border-radius: 10px; color: #fff; font-size: 13px; font-weight: 700; }
+  code, .mono { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 13.5px; }
+  td code { background: #fff; border: 1px solid var(--linha); border-radius: 4px; padding: 0 4px; }
+
+  /* código */
+  pre { font-family: "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 15px; line-height: 1.5; background: #0f1a15; color: #dfe9e3; border-radius: 10px; padding: 18px 22px; white-space: pre; overflow: hidden; }
+  pre .k { color: #7fd6a8; } pre .c { color: #8a9a92; font-style: italic; } pre .s { color: #f0c674; } pre .r { color: #ff8f80; font-weight: 700; }
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+  .rot-code { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--cinza); text-transform: uppercase; margin-bottom: 8px; }
+
+  .nota { margin-top: 16px; background: var(--verde-claro); border-left: 5px solid var(--verde); padding: 12px 16px; font-size: 15.5px; line-height: 1.45; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 80px; }
+  .card { background: var(--verde); color: #fff; border-radius: 12px; padding: 30px 24px; min-height: 240px; }
+  .card b { display: block; font-size: 64px; color: var(--verde-vivo); }
+  .card span { display: block; font-size: 19px; margin-top: 8px; line-height: 1.35; }
+  .escuro { background: #0e1a14; color: #fff; }
+  .escuro .rotulo { color: var(--verde-vivo); }
+  .escuro .sub { color: #b9c6bf; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide capa">
+  <div class="canto c1"></div><div class="canto c2"></div><div class="canto c3"></div><div class="canto c4"></div>
+  <div class="meio">
+    <h1>Manejo Inteligente de Bois</h1>
+    <div class="tag">Revolucionando a Pecuária com Tecnologia e Processos</div>
+    <div class="mod">MÓDULO 4</div>
+    <div class="itens">Diagrama de Sequência<br>Diagrama de Estados<br>Snippet Code<br>Gestão de Qualidade, RH e Comunicações</div>
+    <div class="nomes">Jackson - João Pedro - Jota - Júlia Pereira<br>Kauê - Leandro Cavalcante - Leo Lima - Maria Antônia</div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="rotulo">Diagrama de Sequência · 1 de 2</div>
+  <h1>Cadastro de piquete e movimentação</h1>
+  <div class="fig" style="top:112px; bottom:10px"><img src="img/ds-parte1.png" alt="Diagrama de Sequência, mensagens 1 a 17"></div>
+  <div class="num">2</div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="rotulo">Diagrama de Sequência · 2 de 2</div>
+  <h1>Rotina agendada e consulta das recomendações</h1>
+  <div class="fig" style="top:112px; bottom:10px"><img src="img/ds-parte2.png" alt="Diagrama de Sequência, mensagens 18 a 37"></div>
+  <div class="num">3</div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="rotulo">Diagrama de Estados</div>
+  <h1>Ciclo de vida do piquete</h1>
+  <div class="sub">Depois de cadastrado, o piquete fica em duas regiões ao mesmo tempo: a ocupação e o monitoramento NDVI</div>
+  <div class="fig" style="top:140px; bottom:10px"><img src="img/de.png" alt="Diagrama de Estados do piquete"></div>
+  <div class="num">4</div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Do Diagrama de Sequência para os métodos</h1>
+  <table style="font-size:14.5px; margin-top:18px">
+    <tr><th style="width:80px">DS</th><th>Mensagem no diagrama</th><th>No código (main.py)</th></tr>
+    <tr><td>2</td><td><code>validarPoligonoEArea()</code></td><td><code>validar_poligono_e_area()</code></td></tr>
+    <tr><td>3 a 5</td><td><code>POST /piquetes</code> · <code>salvarPiquete()</code></td><td><code>cadastrar_piquete()</code> · <code>BancoDeDados.salvar_piquete()</code></td></tr>
+    <tr><td>9</td><td><code>validarQuantidades()</code></td><td><code>validar_quantidades()</code></td></tr>
+    <tr><td>10 a 14</td><td>bloco <code>alt</code>: adicionar · remover · mover</td><td><code>movimentar_animais()</code> com <code>if / elif</code>, <code>incrementar_animais()</code>, <code>decrementar_animais()</code></td></tr>
+    <tr><td>18 a 20</td><td><code>dispararAtualizacaoNDVI()</code> · <code>listarPiquetes()</code></td><td><code>disparar_atualizacao_ndvi()</code> · <code>BancoDeDados.listar_piquetes()</code></td></tr>
+    <tr><td>loop</td><td><code>[para cada piquete]</code></td><td><code>for piquete in self.banco.listar_piquetes():</code></td></tr>
+    <tr><td>21 e 22</td><td><code>solicitarImagem(poligono, data)</code></td><td><code>ServicoSatelite.solicitar_imagem()</code></td></tr>
+    <tr><td>23 a 25</td><td><code>salvarLeituraNDVI()</code> · <code>buscarLotacao()</code></td><td><code>salvar_leitura_ndvi()</code> · <code>buscar_lotacao()</code></td></tr>
+    <tr><td>26</td><td><code>montarPrompt(ndvi, areaM2, lotacao)</code></td><td><code>montar_prompt()</code></td></tr>
+    <tr><td>27 e 28</td><td><code>generateContent(prompt)</code></td><td><code>ServicoGemini.generate_content()</code></td></tr>
+    <tr><td>29</td><td><code>salvarRecomendacao()</code></td><td><code>BancoDeDados.salvar_recomendacao()</code></td></tr>
+    <tr><td>32 a 34</td><td><code>GET /dashboard</code> · <code>buscarNDVIeRecomendacoes()</code></td><td><code>consultar_dashboard()</code> · <code>buscar_ndvi_e_recomendacoes()</code></td></tr>
+  </table>
+  <div class="num">5</div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Cada estado e cada seta do DE no código</h1>
+  <table class="grande">
+    <tr><th style="width:470px">Elemento do Diagrama de Estados</th><th>No código</th></tr>
+    <tr><td>Em cadastro → [inválido] / exibe erro<br>Em cadastro → [válido] / salvarPiquete()</td><td><code>cadastrar_piquete()</code>: lança <code>ValueError</code> ou cria o <code>Piquete</code></td></tr>
+    <tr><td>Estado composto "Piquete ativo" com duas regiões concorrentes</td><td>o <code>Piquete</code> guarda <code>estado_ocupacao</code> e <code>estado_ndvi</code>, que mudam de forma independente</td></tr>
+    <tr><td>Vazio ⇄ Ocupado, com as guardas [lotação = 0] e [lotação &gt; 0]</td><td>enum <code>EstadoOcupacao</code>, calculado a partir da lotação</td></tr>
+    <tr><td>Sem leitura → Coletando → Gerando → Com recomendação → (a cada X dias) Coletando</td><td>enum <code>EstadoNDVI</code> e tabela <code>TRANSICOES_NDVI</code>, com uma entrada por seta</td></tr>
+    <tr><td>Seta que não existe no diagrama</td><td><code>mudar_estado_ndvi()</code> recusa a transição</td></tr>
+  </table>
+  <div class="num">6</div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Trechos do código</h1>
+  <div class="duas">
+    <div>
+      <div class="rot-code">Diagrama de Estados</div>
+<pre style="font-size:13.5px">TRANSICOES_NDVI = {
+  (SEM_LEITURA, COLETANDO):
+      <span class="s">"dispararAtualizacaoNDVI()"</span>,
+  (COLETANDO, GERANDO):
+      <span class="s">"imagem e NDVI recebidos"</span>,
+  (GERANDO, COM_RECOMENDACAO):
+      <span class="s">"recomendacao recebida"</span>,
+  (COM_RECOMENDACAO, COLETANDO):
+      <span class="s">"[a cada X dias]"</span>,
+}
+
+<span class="k">def</span> mudar_estado_ndvi(self, novo):
+    <span class="c"># so aceita as setas que existem no DE</span>
+    <span class="k">if</span> (self.estado_ndvi, novo) <span class="k">not in</span> TRANSICOES_NDVI:
+        <span class="k">raise</span> RuntimeError(<span class="s">"Transicao invalida"</span>)
+    self.estado_ndvi = novo</pre>
+    </div>
+    <div>
+      <div class="rot-code">Diagrama de Sequência · rotina agendada</div>
+<pre style="font-size:13.5px"><span class="k">def</span> disparar_atualizacao_ndvi(self):   <span class="c"># DS 18</span>
+  <span class="k">for</span> p <span class="k">in</span> self.banco.listar_piquetes():  <span class="c"># loop</span>
+    p.mudar_estado_ndvi(COLETANDO)
+    img, ndvi = self.satelite.solicitar_imagem(
+        p.poligono, data)                  <span class="c"># DS 21</span>
+    self.banco.salvar_leitura_ndvi(...)    <span class="c"># DS 23</span>
+    p.mudar_estado_ndvi(GERANDO)
+    animais = self.banco.buscar_lotacao(p.id)
+    prompt = self.montar_prompt(ndvi,
+        p.area_m2, animais)                <span class="c"># DS 26</span>
+    rec = self.gemini.generate_content(
+        prompt)                            <span class="c"># DS 27</span>
+    self.banco.salvar_recomendacao(
+        p.id, rec)                         <span class="c"># DS 29</span>
+    p.mudar_estado_ndvi(COM_RECOMENDACAO)</pre>
+    </div>
+  </div>
+  <div class="num">7</div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="rotulo">Snippet Code</div>
+  <h1>Saída do teste</h1>
+  <div class="sub">Dois piquetes, uma movimentação, uma rotina agendada, o dashboard e as verificações de qualidade</div>
+  <div class="duas" style="grid-template-columns: 1fr 1fr">
+<pre style="font-size:13px; line-height:1.45">Piquete 1 cadastrado.
+Piquete 2 cadastrado.
+Animais adicionados ao piquete.
+Animais removidos do piquete.
+Animais adicionados ao piquete.
+Solicitando imagem ao satelite...
+Enviando dados ao Gemini...
+Piquete 1: recomendacao salva.
+...
+Piquete 1
+Area: 10000 m2
+Lotacao: 14
+Animais: {'bois': 7, 'vacas': 5, 'bezerros': 2}
+Ocupacao: Ocupado
+NDVI: 0.72
+Estado NDVI: Com recomendacao
+Recomendacao: Pastagem em boas condicoes.
+              Monitorar lotacao.</pre>
+<pre style="font-size:13px; line-height:1.45">=== Criterios de qualidade ===
+<span class="k">[OK]</span> 3.1 poligono com 2 pontos rejeitado
+<span class="k">[OK]</span> 3.1 area zero rejeitada
+<span class="k">[OK]</span> 3.2 quantidade negativa rejeitada
+<span class="k">[OK]</span> 3.2 quantidade fracionada rejeitada
+<span class="k">[OK]</span> 3.2 categoria desconhecida rejeitada
+<span class="k">[OK]</span> 2.2.1 mover mais do que existe rejeitado
+<span class="k">[OK]</span> 2.2.1 soma das lotacoes = rebanho
+<span class="k">[OK]</span> 2.2.1 nenhuma lotacao negativa
+<span class="k">[OK]</span> DE transicao fora do diagrama rejeitada
+9/9 verificacoes aprovadas</pre>
+  </div>
+  <div class="num">8</div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="rotulo">Ementa · Gestão de qualidade</div>
+  <h1>Os critérios de aceitação viraram teste</h1>
+  <div class="sub">Critérios da nossa Gestão de Qualidade verificados automaticamente a cada execução</div>
+  <table class="grande">
+    <tr><th style="width:110px">Critério</th><th style="width:220px">Pacote</th><th>Como o código verifica</th><th style="width:190px">Responsável · verificador</th></tr>
+    <tr><td>3.1</td><td>Cadastro de Piquete</td><td>Polígono com menos de 3 pontos ou área zero é rejeitado com mensagem</td><td>FRN e BCK, cruzada</td></tr>
+    <tr><td>3.2</td><td>Cadastro de Bois</td><td>Quantidade negativa, fracionada ou de categoria desconhecida é rejeitada</td><td>BCK · verif. FRN</td></tr>
+    <tr><td>2.2.1</td><td>Estimativa de Ocupação</td><td>A soma das lotações é igual ao rebanho e nenhuma lotação fica negativa</td><td>BCK · verif. FRN</td></tr>
+    <tr><td>DE</td><td>Diagrama de Estados</td><td>Transição que não está no diagrama é recusada</td><td>BCK · verif. MID</td></tr>
+  </table>
+  <div class="nota"><b>O teste encontrou um defeito.</b> A primeira versão do snippet aceitava adicionar −5 bois, e a lotação do piquete ficava em −5. Pela nossa classificação é <b>severidade 1</b> (corrupção de dado de rebanho), que bloqueia o marco. Foi corrigido em <code>validar_quantidades()</code> e agora as 9 verificações passam.</div>
+  <div class="num">9</div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="rotulo">Ementa · Gestão de recursos humanos</div>
+  <h1>Quem cuida de cada parte dos diagramas</h1>
+  <div class="sub">Os participantes do Diagrama de Sequência ligados aos papéis da equipe e às atividades do Gantt</div>
+  <table class="grande">
+    <tr><th>Participante ou trecho do DS</th><th style="width:300px">Papel</th><th style="width:200px">Pessoa</th><th style="width:150px">Gantt</th></tr>
+    <tr><td>Interface Web (mensagens 1 a 17, 31 a 37)</td><td>Desenvolvedor front-end (FRN)</td><td>João Pedro</td><td>2, 3, 8</td></tr>
+    <tr><td>API e Banco de Dados</td><td>Desenvolvedor back-end (BCK)</td><td>Kauê Fortaleza</td><td>2, 3, 4, 6, 7, 8</td></tr>
+    <tr><td>Serviço de Satélite e NDVI (21 a 23)</td><td>Monitoramento e dados (MID)</td><td>Maria Antônia</td><td>4, 5</td></tr>
+    <tr><td>Dados do prompt (24 a 26)</td><td>Inteligência de dados</td><td>Leo Lima</td><td>6</td></tr>
+    <tr><td>Google Gemini e recomendação (27 a 29)</td><td>Inteligência artificial</td><td>Leandro Cavalcante</td><td>7</td></tr>
+    <tr><td>Agendador e fluxo ponta a ponta</td><td>Integração e entrega</td><td>José Felix</td><td>9</td></tr>
+    <tr><td>Verificações de qualidade</td><td>Testes e documentação</td><td>Júlia Pereira</td><td>10, 11</td></tr>
+  </table>
+  <div class="nota">O DS mostra a sobrecarga do back-end (risco R1): API e banco participam de quase todas as mensagens. A validação já está desenhada no front-end (mensagens 2 e 9), então essa parte vai para o FRN.</div>
+  <div class="num">10</div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="rotulo">Ementa · Gestão de comunicações</div>
+  <h1>O DS também mostra o que precisa ser comunicado</h1>
+  <div class="sub">Cada seta entre papéis diferentes é um acordo entre pessoas. Quando ela muda, alguém precisa avisar</div>
+  <table>
+    <tr><th>Evento</th><th style="width:170px">Quem avisa</th><th style="width:210px">Para quem</th><th style="width:210px">Canal</th><th style="width:150px">Quando</th></tr>
+    <tr><td>Mudança num contrato da API (<code>POST /piquetes</code>, <code>/movimentacoes</code>, <code>GET /dashboard</code>)</td><td>BCK</td><td>FRN e José Felix</td><td>GitHub (PR) e WhatsApp</td><td>antes do merge</td></tr>
+    <tr><td>Mudança no prompt ou no modelo (mensagens 26 e 27)</td><td>Leandro</td><td>GER e Júlia</td><td>GitHub e reunião</td><td>a cada mudança</td></tr>
+    <tr><td>Satélite sem imagem ou cota da IA no fim (21, 27)</td><td>Maria Antônia, Kauê</td><td>GER</td><td>WhatsApp</td><td>no mesmo dia</td></tr>
+    <tr><td>Verificação de qualidade falhou</td><td>Júlia</td><td>autor e GER</td><td>GitHub (issue)</td><td>no mesmo dia</td></tr>
+    <tr><td>Progresso, custos e riscos</td><td>Jackson (GER)</td><td>toda a equipe</td><td>reunião e e-mail</td><td>semanal</td></tr>
+  </table>
+  <div class="nota">Do lado do pecuarista, a comunicação é a mensagem 37: o dashboard exibe o mapa, o NDVI e a recomendação, sempre com a data da leitura (critério de qualidade 4.1).</div>
+  <div class="num">11</div>
+</section>
+
+<!-- 12 -->
+<section class="slide escuro">
+  <div class="rotulo">Resumo</div>
+  <h1>Módulo 4 em números</h1>
+  <div class="sub">Diagrama de Sequência e Diagrama de Estados implementados e verificados</div>
+  <div class="cards">
+    <div class="card"><b>12</b><span>trechos do DS ligados a métodos do código (mensagens 1 a 37)</span></div>
+    <div class="card"><b>2 + 4</b><span>regiões concorrentes e transições NDVI do DE</span></div>
+    <div class="card"><b>9/9</b><span>verificações dos critérios de qualidade aprovadas</span></div>
+    <div class="card"><b>1</b><span>defeito de severidade 1 encontrado e corrigido</span></div>
+  </div>
+  <div class="sub" style="margin-top:60px; font-size:19px; color:#fff">Arquivos: <span class="mono" style="font-size:17px">main.py</span> · <span class="mono" style="font-size:17px">saida-do-teste.txt</span> · <span class="mono" style="font-size:17px">Diagrama de Sequência.png</span> · <span class="mono" style="font-size:17px">Diagrama de Estados.png</span></div>
+  <div class="num" style="color:#b9c6bf">12</div>
+</section>
+
+</body>
+</html>

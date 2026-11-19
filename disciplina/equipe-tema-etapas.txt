@@ -1,0 +1,33 @@
+Tema 3
+Sistemas Inteligentes para Agropecuária      
+Equipe Delta 
+Sub-tema: Manejo rotacionado de Animais 
+* Jackson Bruno (líder)
+* Jose Felix
+* Julia Pereira
+* Leonardo Lima
+* Leandro Cavalcante
+* Kauê Fortaleza
+* João Pedro
+* Antônia
+
+Etapa 1: Conteúdo da Ementa
+Módulo 1
+Ciclo de vida e organização de projetos.
+
+Módulo 2
+Gestão da integração. Gestão do escopo.
+
+Modulo 3
+Gestão do tempo. Gestão de custos.
+
+Modulo 4
+Gestão de qualidade. Gestão de recursos humanos. Gestão de comunicações.
+
+Modulo 5
+Gestão de riscos. Gestão de aquisições. Software para gestão de projetos.
+
+Atividades serão requeridas ao longo de cada módulo.
+
+Etapa 2: Projeto de Disciplina
+Um projeto será definido para compor a segunda nota desta disciplina. 
